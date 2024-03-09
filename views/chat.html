@@ -4,8 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./chat.css">
+
 </head>
 <body>
-    <h1>hi</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+               <div class="main">
+                   <div class="group">
+                       <div class="groupheader">
+                           <div class="grouplogo">Chats</div>
+                           <button id="groupbtn" class="btn btn-success">Create</button>
+                           <!-- <i class="fa-solid fa-plus" id="groupbtn"></i> -->
+                       </div>
+                       <div class="grouplist" id="grouplist"></div>
+                   </div>
+                   <div class="chatscreen">
+                       <div class="header">
+                           <div class="logo">Group</div>
+                           <div class= "hidden" id="userlistpane">
+                               <!-- <div class="paneheader" id="paneheader">Members</div> -->
+                           </div>
+                           <button id="exitchatbtn" class="btn btn-success">Log Out</button>
+                       </div>
+                       <div class="messages">
+                           <div class="my-message">
+                                   <div class="name">You</div>
+                                   <div class="mytext">Hi</div>   
+                           </div>
+                           <div class="update"> Sender joined the chat</div>
+                           <div class="other-message">
+                                   <div class="sender">Sender</div>
+                                   <div class="sendertext">Hello</div>
+                           </div>
+                       </div>
+                       <div class="typebox">
+                               <i class="fa-brands fa-squarespace" id="sendfilebtn"></i>
+                               <input type="file" id="fileInput" style="display: none;">
+                               <input type="text" id="messageinput" class="form-control" placeholder="Send a message" >
+                               <i class="fa-regular fa-paper-plane" id="sendbutton"></i>
+                       </div>
+                   </div>
+                </div>
+           </div>
+       </div>
+    </div> 
+    
+        <script src="https://kit.fontawesome.com/0bdc55090c.js" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- <script  src="http://localhost:3000/socket.io/socket.io.js"></script> -->
+   <script
+     src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+     integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+     crossorigin="anonymous"
+   ></script>
+   <script src="./chat.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+    
+</body>
+
+</html>
 </body>
 </html>
