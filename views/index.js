@@ -39,6 +39,7 @@ signinBtn.onclick = function(event){
                  localStorage.setItem('token', res.data.token);
                  localStorage.setItem('userId', res.data.userId);
                  localStorage.setItem('user', res.data.name);
+                 console.log("<<",res.data.name);
                  window.location.href = "./chat.html"; 
                }
                 })
