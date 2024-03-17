@@ -51,6 +51,7 @@ const fetchGroupUsers = async (req, res)=>{
 const addMember = async (req, res)=>{
     const groupId = req.body.activeGroupId;
     const email = req.body.email;
+    console.log(email);
     try{
         const memberToAdd = await User.findOne({where:{email:email}})  
         await Usergroup.create({groupId: groupId, userId: memberToAdd.id }) ;

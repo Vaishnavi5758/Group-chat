@@ -37,7 +37,17 @@ async function getAllGroupsfromDB(){
     }
 }
 
+async function updateUserListPane(activeGroupId) {
+    const userlistpane = document.getElementById('userlistpane');
+    userlistpane.innerHTML = ''; // Clear the existing user list
+
+    // Display updated list of members
+    const userlist = await displayGroupMembers(activeGroupId);
+    userlistpane.appendChild(userlist);
+}
+
 async function displayGroup(data){
+        console.log("<,insidedisplayGroups");
     //show all groups of the user
     const groupname = data.groupname;
     const groupId = data.id;
@@ -77,6 +87,7 @@ async function displayGroup(data){
               try{
                   const response = await axios.post(`http://localhost:3000/group/addMember`,email, {headers: {Authorization: usertoken}})
                   console.log("response of member added", response)
+                  await updateUserListPane(activeGroupId);
                   showUserOnScreen(response.data.newGroupMember)
                  }catch(err){
                         console.log("unable to send request", err)
@@ -120,6 +131,8 @@ async function displayGroup(data){
         const userlist = await displayGroupMembers(activeGroupId);   
         userlistpane.appendChild(userlist);   
     })  
+
+    
         
 })
 }
@@ -166,6 +179,7 @@ function showUserOnScreen(res){
             try{
                 const response = await axios.delete(`http://localhost:3000/group/deleteMember/${activeGroupId}/${userId}`, {headers: {Authorization: usertoken}})
                 if(response.data.success === true) alert('user removed from the group');
+                await updateUserListPane(activeGroupId);
                 // userlist.removeChild(memberElement);
 
             }catch(err){
@@ -342,6 +356,8 @@ function displayMessage (sender, message) {
             }
         }
     })
+
+    
 // }
 
 

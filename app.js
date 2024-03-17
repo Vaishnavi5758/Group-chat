@@ -72,6 +72,7 @@ app.use(express.json());
 app.use(userRouter);
 app.use(passwordRouter);
 app.use(messageRouter);
+app.use(groupRouter);
 
 //route directs
 app.use("/", userRouter);
